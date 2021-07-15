@@ -47,7 +47,7 @@ public class AppLocker: UIViewController {
     
     // MARK: - Top view
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var messageLabel: UILabel!
+//    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var submessageLabel: UILabel!
     @IBOutlet var pinIndicators: [Indicator]!
     @IBOutlet weak var cancelButton: UIButton!
@@ -270,7 +270,7 @@ public extension AppLocker {
         }
         
         locker.mode = mode
-        locker.messageLabel.text = config?.title ?? ""
+//        locker.messageLabel.text = config?.title ?? ""
         locker.submessageLabel.text = config?.subtitle ?? ""
         locker.view.backgroundColor = config?.color ?? .black
         locker.onSuccessfulDismiss = config?.onSuccessfulDismiss
