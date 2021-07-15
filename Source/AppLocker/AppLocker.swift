@@ -103,7 +103,7 @@ public class AppLocker: UIViewController {
         pinView?.isNeedClear = !isNeedClear
         
         UIView.animate(withDuration: ALConstants.duration, animations: {
-            pinView?.backgroundColor = isNeedClear ? .clear : .white
+            pinView?.backgroundColor = isNeedClear ? .clear : UIColor.init(red: 0, green: 1, blue: 1, alpha: 1.0)
         }) { _ in
             isNeedClear ? self.pin = String(self.pin.dropLast()) : self.pincodeChecker(tag ?? 0)
         }
@@ -133,7 +133,7 @@ public class AppLocker: UIViewController {
             isFirstCreationStep = false
             reservedPin = pin
             clearView()
-            submessageLabel.text = "Confirm your pincode"
+            submessageLabel.text = "Confirm your passcode"
         } else {
             confirmPin()
         }
@@ -268,10 +268,11 @@ public extension AppLocker {
             let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
                 return
         }
+        
+        locker.mode = mode
         locker.messageLabel.text = config?.title ?? ""
         locker.submessageLabel.text = config?.subtitle ?? ""
         locker.view.backgroundColor = config?.color ?? .black
-        locker.mode = mode
         locker.onSuccessfulDismiss = config?.onSuccessfulDismiss
         locker.onFailedAttempt = config?.onFailedAttempt
         

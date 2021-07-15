@@ -30,7 +30,8 @@ class ModeViewController: UIViewController {
     
     var options = ALOptions()
     options.image = UIImage(named: "face")!
-    options.title = "Devios Ryasnoy"
+//    options.title = ""
+    options.subtitle = "Create your new passcode to secure your vault"
     options.isSensorsEnabled = true
     options.onSuccessfulDismiss = { (mode: ALMode?) in
         if let mode = mode {
